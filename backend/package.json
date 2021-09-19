@@ -1,0 +1,12 @@
+{
+  "name": "organizoback",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "https://github.com/Hunt092/Organizo.git",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.6"
+  }
+}
