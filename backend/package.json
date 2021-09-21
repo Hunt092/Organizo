@@ -5,8 +5,22 @@
   "repository": "https://github.com/Hunt092/Organizo.git",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-mongo": "^4.6.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "mongoose": "^6.0.6"
+    "express-session": "^1.17.2",
+    "mongo-connect": "^0.0.6",
+    "mongoose": "^6.0.6",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
+  },
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
   }
 }
