@@ -7,7 +7,6 @@ const Sidebar = () => {
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <a href="#">Journal</a>
                 <a href="#">To-Do List</a>
-                <a href="#">Custom List</a>
                 </div>
 
                 <span onclick="openNav()">open</span>
