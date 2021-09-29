@@ -10,7 +10,7 @@ exports.register = async (req, res, next) => {
     try {
 
         const isUser = await User.findOne({ email: email })
-
+        console.log(isUser);
         if (!isUser) {
             const user = new User({
                 ...req.body,
@@ -19,14 +19,14 @@ exports.register = async (req, res, next) => {
             user.save().then((user) => {
                 res.status(201).json({ message: "User was created", user });
             })
+
         }
-        res.json({ message: "User Already Exists" })
+        else {
+            res.json({ message: "User Already Exists" })
+        }
     }
     catch (error) {
-        res.status(400).json({
-            message: "Invalid data",
-            error
-        })
+        console.log(error);
     }
 }
 
@@ -36,4 +36,15 @@ exports.login = (req, res) => {
         user: req.user,
         userID: req.session.passport.user
     })
+}
+
+exports.getUser = async (req, res) => {
+    const { id } = req.params
+    const user = await User.findById(id);
+    if (!user) {
+        res.send(user)
+    }
+    else {
+        res.send("user doesn't exist")
+    }
 }
