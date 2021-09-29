@@ -6,7 +6,8 @@ const cookieParser = require("cookie-parser");
 const session = require('express-session')
 const passport = require("passport");
 const MongoStore = require('connect-mongo');
-const { MongoUrl } = require("./Config/config")
+const { MongoUrl } = require("./Config/config");
+const userRouter = require('./Routes/user');
 
 
 const app = express();
@@ -45,5 +46,5 @@ app.get("/", (req, res) => {
     res.send("Working")
 }
 );
-
+app.use('/user', userRouter)
 module.exports = app;

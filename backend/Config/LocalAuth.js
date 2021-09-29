@@ -1,15 +1,14 @@
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy;
 const { validatePassword } = require('../Lib/authuUtils');
-const User = require('../Models/user');
-
+const User = require('../Models/user')
 passport.use(new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password'
 },
     async (username, password, done) => {
-        try{
-            const user = await User.findOne({ username: username }).exec()
+        try {
+            const user = await User.findOne({ email: username }).exec()
             if (!user) {
                 return done(null, false, { message: 'Incorrect Email.' });
             }
@@ -19,7 +18,7 @@ passport.use(new LocalStrategy({
             }
             return done(null, user);
         }
-        catch(err) {
+        catch (err) {
             done(err)
         };
     }
