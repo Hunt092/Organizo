@@ -7,19 +7,25 @@
 }
 
 body {
+  background-color: rgb(245, 209, 211);
   font-family: 'Poppins', sans-serif;
-  color: rgb(151, 36, 36);
+  color: rgb(102, 6, 6);
 }
 
 .container {
+<<<<<<< HEAD
   max-width: 800px;
   margin: 220px auto;
+=======
+  max-width: 600px;
+  margin: 100px auto;
+>>>>>>> c427d786e77b404e9dc8f2799d3d6f28e36c65af
   overflow: auto;
-  min-height: 300px;
+  min-height: 10px;
   border: 1px solid rgb(148, 110, 60);
   padding: 30px;
   border-radius: 5px;
-  background-color: rgb(245, 209, 211);
+  background-color: rgb(243, 122, 128);
   
 }
 
