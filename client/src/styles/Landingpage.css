@@ -13,9 +13,9 @@ body {
 
 .container {
   max-width: 600px;
-  margin: 220px auto;
+  margin: 100px auto;
   overflow: auto;
-  min-height: 270px;
+  min-height: 10px;
   border: 1px solid rgb(148, 110, 60);
   padding: 30px;
   border-radius: 5px;
