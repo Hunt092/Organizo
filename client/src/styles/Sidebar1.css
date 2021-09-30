@@ -4,6 +4,19 @@ header{
   height: 60px;
 }
 
+.containerr {
+  max-width: 600px;
+  margin: 220px auto;
+  overflow: auto;
+  min-height: 300px;
+  border: 1px solid rgb(148, 110, 60);
+  padding: 30px;
+  border-radius: 5px;
+  background-color: rgb(245, 209, 211);
+  
+}
+
+
 .header {
   display: flex;
   justify-content: space-between;
