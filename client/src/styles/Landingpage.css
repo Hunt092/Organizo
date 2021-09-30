@@ -7,8 +7,9 @@
 }
 
 body {
+  background-color: rgb(245, 209, 211);
   font-family: 'Poppins', sans-serif;
-  color: rgb(151, 36, 36);
+  color: rgb(102, 6, 6);
 }
 
 .container {
@@ -19,7 +20,7 @@ body {
   border: 1px solid rgb(148, 110, 60);
   padding: 30px;
   border-radius: 5px;
-  background-color: rgb(245, 209, 211);
+  background-color: rgb(243, 122, 128);
   
 }
 

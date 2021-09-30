@@ -39,7 +39,7 @@ const submitStyle = {
     background: '#b81132',
     width: '100%', 
     fontSize: '15px',
-    color: 'white',
+    color: '#ffffff',
     display: 'block'
 };
 
