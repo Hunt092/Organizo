@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+.vertical-menu {
+  width: 200px; 
+}
+h2{
+  height: 60px;
+}
+.Vertical Nav Bar{
+  width: 100%;
+  position: fixed;
+  text-align: center;
+  overflow: hidden;
+  height: 100%;
+}
+
+.vertical-menu a {
+  background-color: rgb(245, 209, 211);
+  color: black; 
+  display: block; 
+  position:relative;
+  padding: 12px;
+  padding-top: 70px; 
+  text-decoration: none;
+  height: 200px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color: rgb(151, 36, 36);
+  border-bottom: 1px solid;
+  font-size: larger;
+}
+
+.vertical-menu a:hover {
+  background-color: #ccc; 
+}
+.active{
+  background-color: whitesmoke ;
+}
+.vertical-menu a.active {
+  background-color: #ccc ; 
+  color: rgb(151, 36, 36) ;
+}
+
+
+
+
+

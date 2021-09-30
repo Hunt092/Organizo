@@ -1,16 +1,14 @@
-// ruchita commited just now
 
-import logo from './logo.svg';
 import './App.css';
 
-import Sidebar from './components/Sidebar';
+import Navbar from './components/Navbar';
 import Landingpage from './components/Landingpage';
 
 
 const App=()=>{
   return (
     <>
-    <Sidebar />
+    <Navbar />
     <div className='container'>
       <div><Landingpage /></div>
     </div>
