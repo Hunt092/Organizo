@@ -4,15 +4,17 @@ import logo from './logo.svg';
 import './App.css';
 
 import Sidebar from './components/Sidebar';
+import Landingpage from './components/Landingpage';
 
 
-function App() {
+const App=()=>{
   return (
-    <div className="App">
+    <div className='container'>
       <Sidebar />
+      <Landingpage />
    
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
