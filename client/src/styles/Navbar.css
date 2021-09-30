@@ -15,7 +15,7 @@ h2{
 }
 
 .vertical-menu a {
-  background-color: rgb(245, 209, 211);
+  background-color: whitesmoke;
   color: black; 
   display: block; 
   position:relative;
@@ -37,7 +37,7 @@ h2{
   background-color: whitesmoke ;
 }
 .vertical-menu a.active {
-  background-color: #ccc ; 
+  background-color:#ccc; 
   color: rgb(151, 36, 36) ;
 }
 
