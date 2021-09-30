@@ -1,18 +1,21 @@
 import React from 'react'
+import '../styles/Sidebar1.css'
 
 const Sidebar = () => {
     return (
-        <div>
-            <div id="mySidenav" class="sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <a href="#">Journal</a>
-                <a href="#">To-Do List</a>
-                </div>
+        
+       <>
+            <header>
+                <img src="C:\Users\BB ABHANG\Organizo\Organizo\client\src\assets\profilepic.png"></img>
+                <h2>John D.</h2>
+            </header>
 
-                <span onclick="openNav()">open</span>
-                <div id="main">
-            </div>
-        </div>
+            <ul>
+                <li ><span>Journal</span></li>
+                <li ><span>To-Do List</span></li>
+            </ul>
+   
+        </>
     )
 }
 

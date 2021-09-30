@@ -9,11 +9,12 @@ import Landingpage from './components/Landingpage';
 
 const App=()=>{
   return (
+    <>
+    <Sidebar />
     <div className='container'>
-      <Sidebar />
-      <Landingpage />
-   
+      <div><Landingpage /></div>
     </div>
+    </>
   )
 }
 
