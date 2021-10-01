@@ -7,7 +7,8 @@
 }
 
 body {
-  background-color: rgb(245, 209, 211);
+  background-color: #E3E2DF;
+  background-image: linear-gradient(#E3E2DF,#9A1750);
   font-family: 'Poppins', sans-serif;
   color: rgb(102, 6, 6);
 }
@@ -15,14 +16,14 @@ body {
 .container {
   max-width: 800px;
   margin: 220px auto;
-  margin-top: -45px;
+  margin-top: -575px;
   margin-right: 195px;
   overflow: auto;
   min-height: 10px;
   border: 1px solid rgb(148, 110, 60);
   padding: 30px;
   border-radius: 5px;
-  background-color: rgb(226, 223, 223);
+  background-color: whitesmoke;
   
 }
 
