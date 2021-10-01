@@ -15,7 +15,8 @@ body {
 .container {
   max-width: 800px;
   margin: 220px auto;
-  margin-top: -345px;
+  margin-top: -45px;
+  margin-right: 195px;
   overflow: auto;
   min-height: 10px;
   border: 1px solid rgb(148, 110, 60);
