@@ -10,7 +10,7 @@ const formStyle = {
   padding: '10px',
   border: '1px solid #c9c9c9',
   borderRadius: '5px',
-  background: '#E3AFBC',
+  background: '#E3E2DF',
   width: '300px',
   display: 'block'
 };
@@ -35,12 +35,18 @@ const submitStyle = {
   padding: '8px 10px',
   border: '1px solid #b81132',
   borderRadius: '3px',
-  background: '#E3E2DF',
+  background: '#ca216a',
   width: '100%',
   fontSize: '15px',
+  cursor: 'pointer',
   color: '#ffffff',
   display: 'block'
 };
+
+const registerSytle = {
+  margin:'12px 0 0 0',
+  fontSize: '16px'
+}
 
 const Field = React.forwardRef(({ label, type }, ref) => {
   return (
@@ -63,12 +69,15 @@ const Form = ({ onSubmit }) => {
     onSubmit(data);
   };
   return (
+    
     <form style={formStyle} onSubmit={handleSubmit} >
+      <h3 style={{marginLeft:'110px'}}>Login</h3>
       <Field ref={usernameRef} label="Username:" type="text" />
       <Field ref={passwordRef} label="Password:" type="password" />
       <div>
         <button style={submitStyle} type="submit">Login</button>
       </div>
+      <div style={registerSytle}>Not registered yet? <a href="#" >Register here!</a></div>
     </form>
   );
 };
