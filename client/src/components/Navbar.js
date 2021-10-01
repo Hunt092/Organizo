@@ -6,13 +6,13 @@ function Navbar() {
   return (
 
     <div class="vertical-menu">
-      <ul className = "Vertical Nav Bar">
-      <li><a className ="active" href="#">Dashboard</a></li>
-       <li><a href="#">Journal</a></li>
-       <li><a href="#">To-Do List</a></li>
+      <ul className="Vertical Nav Bar">
+        <li className="active">Dashboard</li>
+        <li>Journal</li>
+        <li>To-Do List</li>
       </ul>
     </div>
-      
+
   )
 }
 
