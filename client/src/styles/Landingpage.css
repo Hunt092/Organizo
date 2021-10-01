@@ -11,6 +11,8 @@ body {
   background-image: linear-gradient(#E3E2DF,#9A1750); 
   font-family: 'Poppins', sans-serif;
   color: rgb(102, 6, 6);
+  background-repeat: no-repeat;
+  height: 100vh;
 }
 
 .container {
@@ -25,7 +27,6 @@ body {
   padding: 30px;
   border-radius: 5px;
   background-color: whitesmoke;
-  
 }
 
 .header {
