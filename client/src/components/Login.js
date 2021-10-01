@@ -10,7 +10,7 @@ const formStyle = {
   padding: '10px',
   border: '1px solid #c9c9c9',
   borderRadius: '5px',
-  background: 'white',
+  background: '#E3AFBC',
   width: '300px',
   display: 'block'
 };
@@ -25,17 +25,17 @@ const inputStyle = {
   margin: '5px 0 10px 0',
   padding: '5px',
   border: '1px solid #bfbfbf',
-  borderRadius: '3px',
+  borderRadius: '12px',
   boxSizing: 'border-box',
   width: '100%'
 };
 
 const submitStyle = {
-  margin: '10px 0 0 0',
-  padding: '7px 10px',
+  margin: '18px 6px 0 0',
+  padding: '8px 10px',
   border: '1px solid #b81132',
   borderRadius: '3px',
-  background: '#b81132',
+  background: '#E3E2DF',
   width: '100%',
   fontSize: '15px',
   color: '#ffffff',
@@ -67,7 +67,7 @@ const Form = ({ onSubmit }) => {
       <Field ref={usernameRef} label="Username:" type="text" />
       <Field ref={passwordRef} label="Password:" type="password" />
       <div>
-        <button style={submitStyle} type="submit">Submit</button>
+        <button style={submitStyle} type="submit">Login</button>
       </div>
     </form>
   );
