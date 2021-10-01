@@ -1,21 +1,20 @@
 
 import './App.css';
 
-import Navbar from './components/Navbar';
-import Landingpage from './components/Landingpage';
-import Login from './components/Login';
-import Heading from './components/Heading';
+import Navbar from './Components/Navbar';
+import Landingpage from './Components/Landingpage';
+import Login from './Components/Login';
+import Heading from './Components/Heading'
 
-
-const App=()=>{
+const App = () => {
   return (
     <>
-    <Heading />
-    <Navbar />
-    <div className='container'>
-      <div><Landingpage />
-      <Login /></div>
-    </div>
+      <Heading />
+      <Navbar />
+      <div className='container'>
+        <div><Landingpage />
+          <Login /></div>
+      </div>
     </>
   )
 }
