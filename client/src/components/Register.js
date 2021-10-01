@@ -71,13 +71,13 @@ const Form = ({ onSubmit }) => {
   return (
     
     <form style={formStyle} onSubmit={handleSubmit} >
-      <h3 style={{marginLeft:'110px'}}>Login</h3>
+      <h3 style={{marginLeft:'110px'}}>Register</h3>
       <Field ref={usernameRef} label="Username:" type="text" />
       <Field ref={passwordRef} label="Password:" type="password" />
+      <Field ref={passwordRef} label="Confirm Password:" type="password" />
       <div>
-        <button style={submitStyle} type="submit">Login</button>
+        <button style={submitStyle} type="submit">Register</button>
       </div>
-      <div style={registerSytle}>Not registered yet? <a href="#" >Register here!</a></div>
     </form>
   );
 };
