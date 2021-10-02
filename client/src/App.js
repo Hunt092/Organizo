@@ -7,6 +7,7 @@ import Login from './components/Login';
 import Heading from './components/Heading'
 import Register from './components/Register';
 import Journal from './components/Journal';
+import Todolist from './components/ToDoList';
 
 const App = () => {
   return (
@@ -17,7 +18,7 @@ const App = () => {
           <Login /></div>*/}
       {/* </div> */}
       <div><Navbar />
-      <Journal /></div>
+      <Todolist /></div>
     </>
   )
 }
