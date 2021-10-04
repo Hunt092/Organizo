@@ -8,7 +8,8 @@ const journalPageSchema = new schema({
     authorId: {
         type: mongoose.Types.ObjectId,
         ref: "User"
-    }
+    },
+    date: Data()
 }
 )
 
