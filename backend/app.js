@@ -9,6 +9,7 @@ const MongoStore = require('connect-mongo');
 const { MongoUrl } = require("./Config/config");
 const userRouter = require('./Routes/user');
 const journalRouter = require('./Routes/journal');
+const TodoRouter = require('./Routes/todo');
 
 
 const app = express();
@@ -49,4 +50,5 @@ app.get("/", (req, res) => {
 );
 app.use('/user', userRouter)
 app.use('/journal', journalRouter)
+app.use("/todo", TodoRouter)
 module.exports = app;
