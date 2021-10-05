@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-import AddToDo from '.components/AddToDo'
-=======
 import React from 'react';
 import '../styles/Todolist.css';
 
@@ -21,4 +18,3 @@ function ToDoList() {
 }
 
 export default ToDoList
->>>>>>> 7b1e4e8f2c3610cac9b36475410bee17c701739d
