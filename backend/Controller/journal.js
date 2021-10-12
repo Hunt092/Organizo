@@ -23,7 +23,7 @@ exports.createJournal = async (req, res) => {
                 authorId: userid
             })
             try {
-                user.journal.push(journalPage)
+                user.journal = [...user.journal, journalPage]
                 await user.save()
                 await journalPage.save()
                 res.status(201).send("Journal Created")
