@@ -21,10 +21,10 @@ const journalid = '61658c86794bfcedccf77f61'
 const todoid = '61659742d68f05a4c400ac08'
 const App = () => {
   useEffect(() => {
-    (async () => {
-      const todoArray = await createTodo({ data: "goddman" }, '6165898a794bfcedccf77f45')
-      console.log(todoArray)
-    })()
+    // (async () => {
+    //   const todoArray = await createTodo({ data: "goddman" }, '6165898a794bfcedccf77f45')
+    //   console.log(todoArray)
+    // })()
 
   }, [])
   return (
