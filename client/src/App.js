@@ -13,7 +13,7 @@ import Register from './components/Register';
 import Journal from './components/Journal';
 import AddToDoList from './components/AddToDoList';
 import Layout from './pages/Layout';
-import axios from 'axios'
+import axios from 'axios';
 import { useEffect } from 'react';
 const App = () => {
   useEffect(() => {
@@ -30,6 +30,7 @@ const App = () => {
           <Heading />
           <Layout>
             <Landingpage />
+            <Login />
           </Layout>
         </Route>
         <Route path="/todo">
