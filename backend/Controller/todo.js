@@ -48,10 +48,18 @@ exports.createTodo = async (req, res) => {
                 ...req.body,
                 authorId: userId
             })
-            user.todo.push(Todo)
-            await Todo.save()
-            await user.save()
-            res.status(201).send("Todo ADDED")
+            try {
+                user.todo = [...user.todo, Todo]
+                await user.save()
+                await Todo.save()
+                res.status(201).send("Todo ADDED")
+            }
+            catch (err) {
+                res.json({
+                    message: "Error Occured",
+                    err
+                })
+            }
         } else {
             res.status(400).send("Invalid USer")
         }

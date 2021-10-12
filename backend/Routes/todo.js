@@ -4,7 +4,7 @@ const { getAllTodos, getTodo, createTodo, updateTodo, deleteTodo } = require('..
 
 const TodoRouter = Router()
 
-TodoRouter.get("/getAllToDo/:userid", getAllTodos)
+TodoRouter.get("/getall/:userid", getAllTodos)
 TodoRouter.get("/:todoId", getTodo)
 TodoRouter.post("/create/:userId", createTodo)
 TodoRouter.patch("/update/:todoId", updateTodo)
