@@ -4,6 +4,7 @@ const User = require("../Models/user");
 
 exports.getUserJournals = async (req, res) => {
     const { userid } = req.params
+
     const journalPages = await JournalPage.find({ authorId: userid })
     res.status(200).json({
         journalPages
@@ -16,14 +17,26 @@ exports.createJournal = async (req, res) => {
     try {
 
         const user = await User.findById(userid)
-        const journalPage = new JournalPage({
-            ...req.body,
-            authorId: userid
-        })
-        user.journal.push(journalPage)
-        await journalPage.save()
-        await user.save()
-        res.status(201).send("Journal Created")
+        if (user) {
+            const journalPage = new JournalPage({
+                ...req.body,
+                authorId: userid
+            })
+            try {
+                user.journal.push(journalPage)
+                await user.save()
+                await journalPage.save()
+                res.status(201).send("Journal Created")
+            } catch (err) {
+                res.json({
+                    message: "Error in saving",
+                    err
+                })
+            }
+        } else {
+            res.send("NOUSER ")
+        }
+
     }
     catch {
         res.status(500).send("Some Error Occured")
