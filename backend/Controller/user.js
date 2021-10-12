@@ -8,18 +8,14 @@ exports.register = async (req, res, next) => {
     const { email, password } = req.body
     const hash = await genPassword(password)
     try {
-
         const isUser = await User.findOne({ email: email })
-        console.log(isUser);
         if (!isUser) {
             const user = new User({
                 ...req.body,
                 password: hash
             })
-            user.save().then((user) => {
-                res.status(201).json({ message: "User was created", user });
-            })
-
+            await user.save()
+            res.status(201).json({ message: "User was created", user });
         }
         else {
             res.json({ message: "User Already Exists" })

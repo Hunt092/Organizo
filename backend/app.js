@@ -9,11 +9,13 @@ const MongoStore = require('connect-mongo');
 const { MongoUrl } = require("./Config/config");
 const userRouter = require('./Routes/user');
 const journalRouter = require('./Routes/journal');
+const TodoRouter = require('./Routes/todo');
 
 
 const app = express();
 app.use(cors()) // enables cors for all request
 app.use(express.json());
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
 mongoose.connect(MongoUrl, {
@@ -33,14 +35,13 @@ app.use(session({
     }),
     cookie: {
         secure: true,
-        maxAge: 10000 * 60 * 60 * 24,
+        maxAge: 1000 * 60 * 60 * 24,
     },
 }))
 
 require('./Config/LocalAuth')
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(cookieParser());
 
 
 app.get("/", (req, res) => {
@@ -49,4 +50,5 @@ app.get("/", (req, res) => {
 );
 app.use('/user', userRouter)
 app.use('/journal', journalRouter)
+app.use("/todo", TodoRouter)
 module.exports = app;
