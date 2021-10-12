@@ -3,7 +3,6 @@ const User = require("../Models/user")
 
 
 
-
 exports.register = async (req, res, next) => {
     const { email, password } = req.body
     const hash = await genPassword(password)

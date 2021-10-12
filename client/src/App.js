@@ -13,11 +13,18 @@ import Register from './components/Register';
 import Journal from './components/Journal';
 import AddToDoList from './components/AddToDoList';
 import Layout from './pages/Layout';
-import axios from 'axios'
 import { useEffect } from 'react';
+import { createTodo, GetallJournal, GetallTodo, getJournal, getTodo } from './api/db';
+
+const userid = '6165898a794bfcedccf77f45'
+const journalid = '61658c86794bfcedccf77f61'
+const todoid = '61659742d68f05a4c400ac08'
 const App = () => {
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_BaseURL}/journal/getall/6154a1b2496c5372c3a7a0fb`).then(response => console.log(response))
+    (async () => {
+      const todoArray = await createTodo({ data: "goddman" }, '6165898a794bfcedccf77f45')
+      console.log(todoArray)
+    })()
 
   }, [])
   return (
