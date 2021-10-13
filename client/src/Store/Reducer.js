@@ -1,6 +1,7 @@
 export const initialState = {
     user: null,
-    todo: []
+    todo: [],
+    journals: []
 };
 
 
@@ -44,6 +45,11 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 todo: action.todos
+            }
+        case 'UPDATE__JOURNALS':
+            return {
+                ...state,
+                journals: action.journals
             }
         default:
             return state;

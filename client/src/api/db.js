@@ -34,14 +34,14 @@ export const getJournal = async (journalid) => {
 
 export const createJournal = async (journaldata, userid) => {
     const res = await axios.post(`${baseurl}/journal/create/${userid}`, journaldata)
-    return res
+    return res.data
 }
 export const updateJournal = async (journaldata, journalid) => {
     const res = await axios.patch(`${baseurl}/journal/update/${journalid}`, journaldata)
-    return res
+    return res.data
 }
 
-export const deleteJournal = async (journalid) => {
+export const DeleteJournal = async (journalid) => {
     const res = await axios.delete(`${baseurl}/journal/${journalid}`)
     return res.data
 }
