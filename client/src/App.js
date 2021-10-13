@@ -29,8 +29,18 @@ const App = () => {
         user: userid
       })
     }
-
-  }, [])
+    if (user) {
+      (async () => {
+        console.log("HERE");
+        let todoarray = await GetallTodo(user)
+        dispatch({
+          type: 'UPDATE__TODOS',
+          todos: todoarray
+        })
+      }
+      )()
+    }
+  }, [user])
   return (
     <Router>
       {!user ? <Auth /> :
