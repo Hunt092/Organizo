@@ -52,10 +52,13 @@ exports.createTodo = async (req, res) => {
                 user.todo = [...user.todo, Todo]
                 await user.save()
                 await Todo.save()
-                res.status(201).send("Todo ADDED")
+                res.status(201).json({
+                    message: "Todo Added",
+                    todoId: Todo._id
+                })
             }
             catch (err) {
-                res.json({
+                res.status(500).json({
                     message: "Error Occured",
                     err
                 })

@@ -26,15 +26,18 @@ exports.createJournal = async (req, res) => {
                 user.journal = [...user.journal, journalPage._id]
                 await user.save()
                 await journalPage.save()
-                res.status(201).send("Journal Created")
+                res.status(201).json({
+                    message: "Journal",
+                    journalId: journalPage._id
+                })
             } catch (err) {
-                res.json({
+                res.status(500).json({
                     message: "Error in saving",
                     err
                 })
             }
         } else {
-            res.send("NOUSER ")
+            res.status(400).send("NO USER")
         }
 
     }
