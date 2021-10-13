@@ -1,4 +1,6 @@
 import React from 'react';
+import { signup } from '../api/db';
+import { useStateValue } from '../Store/StateProvider';
 
 const appStyle = {
   height: '360px',
@@ -44,7 +46,7 @@ const submitStyle = {
 };
 
 const registerSytle = {
-  margin:'12px 0 0 0',
+  margin: '12px 0 0 0',
   fontSize: '16px'
 }
 
@@ -57,42 +59,49 @@ const Field = React.forwardRef(({ label, type }, ref) => {
   );
 });
 
-const Form = ({ onSubmit }) => {
+const Form = ({ onSubmit, setType }) => {
   const usernameRef = React.useRef();
   const passwordRef = React.useRef();
   const handleSubmit = e => {
     e.preventDefault();
     const data = {
-      username: usernameRef.current.value,
+      email: usernameRef.current.value,
       password: passwordRef.current.value
     };
     onSubmit(data);
   };
   return (
-    
+
     <form style={formStyle} onSubmit={handleSubmit} >
-      <h3 style={{marginLeft:'110px'}}>Register</h3>
+      <h3 style={{ marginLeft: '110px' }}>Register</h3>
       <Field ref={usernameRef} label="Username:" type="text" />
       <Field ref={passwordRef} label="Password:" type="password" />
       <Field ref={passwordRef} label="Confirm Password:" type="password" />
       <div>
         <button style={submitStyle} type="submit">Register</button>
       </div>
+      <div style={registerSytle} onClick={() => setType(true)} >Have an Account?<span > Login!</span></div>
     </form>
   );
 };
 
 // Usage example:
 
-const App = () => {
-  const handleSubmit = data => {
-    const json = JSON.stringify(data, null, 4);
-    console.clear();
-    console.log(json);
+const App = ({ setType }) => {
+  const [, dispatch] = useStateValue()
+  const handleSubmit = async ({ email, password }) => {
+    const { message, user } = await signup(email, password)
+    localStorage.setItem('userid', user._id)
+    dispatch({
+      type: "SET_USER",
+      user: user._id
+    })
+    alert(message)
   };
   return (
+
     <div style={appStyle}>
-      <Form onSubmit={handleSubmit} />
+      <Form onSubmit={handleSubmit} setType={setType} />
     </div>
   );
 };
