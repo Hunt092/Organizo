@@ -1,34 +1,88 @@
-/* Float four columns side by side */
-.column {
-	float: left;
+.journalpage__header {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	border-bottom: 2px solid;
+}
+.journalpage__content {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	margin: 0.5em;
+	max-height: 90vh;
+	overflow-y: scroll;
+}
+.journalpage__content::-webkit-scrollbar {
+	width: 5px;
+}
+
+.journal {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+
+	background: white;
+	padding: 1em;
+	border: 1px solid;
+}
+.journal__header {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid;
+}
+.journal__headerContent {
+	flex: 1;
+}
+.journal__control {
+	display: flex;
 	width: 25%;
-	padding: 0 10px;
+	justify-content: space-around;
+	align-items: center;
+}
+.journal__content {
+	padding: 1em 0;
 }
 
-.row {
-	margin-top: -358px;
-	margin-left: 540px;
-	background-repeat: no-repeat;
+.journalForm {
+	padding: 1em;
+	margin: 1em;
+	background-color: white;
+	border: 1px solid;
 }
-
-/* Clear floats after the columns */
-.row:after {
-	content: "";
-	display: table;
-	clear: both;
+.journalForm__header {
+	padding: 1em;
 }
-
-/* Style the counter cards */
-.card {
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-	padding: 16px;
+.journalForm__header {
+	height: auto;
 	text-align: center;
-	background-color: #f1f1f1;
-	text-decoration: none;
-	font-size: large;
+}
+.journalForm__title {
+	border-bottom: 1px solid;
+	padding: 1em;
+	padding-bottom: 0;
+	display: flex;
 }
 
-.card a {
-	text-decoration: none;
-	color: #9a1750;
+.journalForm__title input {
+	border: 0;
+	font-size: 1.5em;
+	background: transparent;
+	flex: 1;
+}
+
+.journalForm__content {
+	display: flex;
+	padding: 1em;
+}
+
+.journalForm__content textarea {
+	border: none;
+	resize: none;
+	flex: 1;
+}
+.formbutton {
+	padding: 1em;
+}
+.formbutton button {
+	padding: 0.5em 1em;
 }
