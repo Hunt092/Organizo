@@ -10,13 +10,11 @@ import Heading from './components/Heading'
 import AddToDoList from './components/AddToDoList';
 import Layout from './pages/Layout';
 import { useEffect } from 'react';
-import { createTodo, GetallJournal, GetallTodo, getJournal, getTodo } from './api/db';
+import { GetallJournal, GetallTodo } from './api/db';
 import Auth from './pages/Auth';
 import { useStateValue } from './Store/StateProvider';
 import JournalPage from './pages/JournalPage'
-const userid = '6165898a794bfcedccf77f45'
-const journalid = '61658c86794bfcedccf77f61'
-const todoid = '61659742d68f05a4c400ac08'
+
 const App = () => {
   const [{ user }, dispatch] = useStateValue()
   useEffect(() => {
@@ -29,7 +27,6 @@ const App = () => {
     }
     if (user) {
       (async () => {
-        console.log("HERE");
         let todoarray = await GetallTodo(user)
         dispatch({
           type: 'UPDATE__TODOS',
@@ -43,7 +40,7 @@ const App = () => {
       }
       )()
     }
-  }, [user])
+  }, [user, dispatch])
   return (
     <Router>
       {!user ? <Auth /> :
