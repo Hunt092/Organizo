@@ -1,45 +1,67 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Todo from './Todo';
 import TodoForm from './TodoForm'
 import '../styles/AddToDo.css';
 import { useStateValue } from '../Store/StateProvider';
+import { createTodo, deleteTodo, updateToDo } from '../api/db';
 
 function AddToDoList() {
-    const [{ todo }, dispatch] = useStateValue()
-    const [todos, setTodos] = useState(todo);
+    const [{ user, todo }, dispatch] = useStateValue()
+    const [todos, setTodos] = useState([]);
+
+    useEffect(() => {
+        setTodos(todo)
+    }, [todo])
 
     const addTodo = todo => {
-        if (!todo.text || /^\s*$/.test(todo.text)) {
+        if (!todo.data || /^\s*$/.test(todo.data)) {
             return;
         }
-        dispatch({
-            type: "APPEND__TODO",
-            todo
-        })
 
-        const newTodos = [todo, ...todos];
-        setTodos(newTodos);
+        (async () => {
+            const { message, todoId } = await createTodo(todo, user)
+            const newTodo = { ...todo, _id: todoId }
+            console.log("todo After", newTodo)
+            const newTodos = [...todos, newTodo];
+            alert(message)
+            dispatch({
+                type: 'UPDATE__TODOS',
+                todos: newTodos
+            })
 
+        })()
     };
 
     const updateTodo = (todoId, newValue) => {
-        if (!newValue.text || /^\s*$/.test(newValue.text)) {
+        if (!newValue.data || /^\s*$/.test(newValue.data)) {
             return;
         }
-        setTodos(prev => {
-            prev.map(item => (item.id === todoId ? newValue : item))
-            console.log(prev)
-        })
+        (async () => {
+            const res = await updateToDo(newValue, todoId)
+            const UpdatedArray = todos.map(item => (item._id === todoId ? { ...item, ...newValue } : item))
+            alert(res)
+            dispatch({
+                type: 'UPDATE__TODOS',
+                todos: UpdatedArray
+            })
+        })()
     }
 
     const removeTodo = id => {
-        const removeArr = [...todos].filter(todo => todo.id !== id);
-        setTodos(removeArr);
+        (async () => {
+            const res = await deleteTodo(id)
+            const removeArr = todos.filter(todo => todo._id !== id);
+            dispatch({
+                type: 'UPDATE__TODOS',
+                todos: removeArr
+            })
+            alert(res)
+        })()
     }
 
     const completeTodo = id => {
         let updatedTodos = todos.map(todo => {
-            if (todo.id == id) {
+            if (todo._id === id) {
                 todo.isComplete = !todo.isComplete
             }
             return todo
@@ -51,9 +73,12 @@ function AddToDoList() {
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }} >
             <h1>What's the plan for today??</h1>
             <TodoForm onSubmit={addTodo} />
-            <Todo todos={todos} completeTodo={completeTodo} removeTodo={removeTodo}
-                updateTodo={updateTodo}
-            />
+            {todos.map((todo) => (
+                <Todo todo={todo} key={todo._id} completeTodo={completeTodo} removeTodo={removeTodo}
+                    updateTodo={updateTodo}
+                />
+            ))
+            }
         </div>
     )
 }

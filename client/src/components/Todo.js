@@ -1,47 +1,48 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import TodoForm from './TodoForm';
 
-import { RiCloseCircleLine} from 'react-icons/ri';
+import { RiCloseCircleLine } from 'react-icons/ri';
 import { TiEdit } from 'react-icons/ti';
 
-function Todo ({todos,completeTodo, removeTodo, updateTodo}) {
+function Todo({ todo, completeTodo, removeTodo, updateTodo }) {
 
     const [edit, setEdit] = useState({
-        id:null,
-        value:''
+        id: null,
+        value: ''
     });
 
-    const submitUpdate = value =>{
-        updateTodo(edit.id,value)
+    const submitUpdate = value => {
+
+        updateTodo(edit.id, value)
         setEdit({
-            id:null,
-            value:''
+            id: null,
+            value: ''
         })
     }
 
-    if (edit.id){
+    if (edit.id) {
         return <TodoForm edit={edit} onSubmit={submitUpdate} />
     }
 
-    return todos.map((todo,index) => (
-       <div
-        className={todo.isComplete ? 'todo-row complete' : 'todo-row'} 
-        key={index}
-        >
-            <div key={todo.id} onClick={() => completeTodo(todo.id)}>
-                {todo.text}
+    return (
+        <div className='todo-row' style={{ display: 'flex', backgroundColor: 'white', padding: '1em' }}>
+            <div onClick={() => completeTodo(todo._id)}>
+                {todo.data}
             </div>
             <div className="icons">
-                <RiCloseCircleLine 
-                onClick={() => removeTodo(todo.id)}
-                className='delete-icon'
+                <RiCloseCircleLine
+                    onClick={() => removeTodo(todo._id)}
+                    className='delete-icon'
                 />
-                <TiEdit onClick={() => setEdit({id: todo.id,value:todo.text})}
-                className='edit-icon'
+                <TiEdit onClick={() => {
+                    console.log(todo._id)
+                    setEdit({ id: todo._id, value: todo.data })
+                }}
+                    className='edit-icon'
                 />
             </div>
-       </div> 
-    )) 
+        </div>
+    )
 }
 
 export default Todo

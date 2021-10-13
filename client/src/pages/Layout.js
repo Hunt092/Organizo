@@ -1,5 +1,4 @@
 import React from 'react'
-import AddToDoList from '../components/AddToDoList'
 import Navbar from '../components/Navbar'
 
 const Layout = ({ children }) => {

@@ -12,15 +12,15 @@ export const getTodo = async (todoid) => {
 }
 export const createTodo = async (todoData, userid) => {
     const res = await axios.post(`${baseurl}/todo/create/${userid}`, todoData)
-    return res
+    return res.data
 }
-export const updateTodo = async (todoData, todoid) => {
+export const updateToDo = async (todoData, todoid) => {
     const res = await axios.patch(`${baseurl}/todo/update/${todoid}`, todoData)
-    return res
+    return res.data
 }
 export const deleteTodo = async (todoid) => {
     const res = await axios.delete(`${baseurl}/todo/delete/${todoid}`)
-    return res
+    return res.data
 }
 export const GetallJournal = async (userid) => {
     const res = await axios.get(`${baseurl}/journal/getall/${userid}`)

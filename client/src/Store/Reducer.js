@@ -40,6 +40,11 @@ const reducer = (state, action) => {
                 ...state,
                 todo: [...state.todo, action.todo]
             }
+        case 'UPDATE__TODOS':
+            return {
+                ...state,
+                todo: action.todos
+            }
         default:
             return state;
     }
