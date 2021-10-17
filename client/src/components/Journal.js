@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Journal = ({ data, title, date, id, deleteFunc, setUpdate, setTitle, setData, setjournalId }) => {
-    let parsedDate = new Date(date)
+    let parsedDate = new Date(date?date:'')
     let datestring = parsedDate.toLocaleDateString()
 
     const handleDelete = (e) => {

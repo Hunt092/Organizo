@@ -25,7 +25,7 @@ function Todo({ todo, completeTodo, removeTodo, updateTodo }) {
     }
 
     return (
-        <div className='todo-row' style={{ display: 'flex', backgroundColor: 'white', padding: '1em' }}>
+        <div className='todo-row' style={{ display: 'flex',alignItems: 'stretch', backgroundColor: 'white', padding: '1em',width: '500px',justifyContent:'space-evenly' }}>
             <div onClick={() => completeTodo(todo._id)}>
                 {todo.data}
             </div>
