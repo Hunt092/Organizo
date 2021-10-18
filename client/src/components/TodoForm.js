@@ -4,7 +4,6 @@ const TodoForm = ({ onSubmit, current, Resetall, isEdit }) => {
     const [input, setInput] = useState('');
     const [date, setDate] = useState('')
     const [priority, setPriority] = useState('')
-    const inputRef = useRef(null)
 
 
 

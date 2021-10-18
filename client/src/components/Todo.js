@@ -17,7 +17,7 @@ function Todo({ todo, completeTodo, removeTodo, setcurrent, setEdit }) {
     return (
         <div className='todo' style={todo.status ? { color: 'green' } : {}}  >
 
-            <div className="todo__content" onDoubleClick={todo.status || todo.status == "Undone" ? "" : handleUpdate}>
+            <div className="todo__content" onDoubleClick={todo.status || todo.status === "Undone" ? "" : handleUpdate}>
                 <div className="todo__header">
                     <div >
                         {todo.data}
@@ -27,7 +27,7 @@ function Todo({ todo, completeTodo, removeTodo, setcurrent, setEdit }) {
                             onClick={() => removeTodo(todo._id)}
                             className='delete-icon'
                         />
-                        {todo.status || todo.status == "Undone" ? '' :
+                        {todo.status || todo.status === "Undone" ? '' :
                             <TiEdit onClick={() => handleUpdate()}
                                 className='edit-icon'
                             />

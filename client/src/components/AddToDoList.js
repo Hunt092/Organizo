@@ -68,7 +68,7 @@ function AddToDoList() {
     const completeTodo = toupdatetodo => {
         (async () => {
             const newtodo = { ...toupdatetodo, status: !toupdatetodo.status }
-            const res = await updateToDo(newtodo, toupdatetodo._id)
+            await updateToDo(newtodo, toupdatetodo._id)
             const updatedTodos = todos.map(todo => (
                 todo._id === toupdatetodo._id ? { ...todo, status: !todo.status } : todo
             ))
