@@ -29,7 +29,7 @@ const Journal = ({ data, title, date, id, deleteFunc, setUpdate, setTitle, setDa
                     <div className="journal__edit" onClick={e => handleEdit(e)} >Edit</div>
                 </div>
             </div>
-            <div className="journal__content">
+            <div className="journal__content" onDoubleClick={handleEdit}>
                 <p>{data}</p>
             </div>
         </div>

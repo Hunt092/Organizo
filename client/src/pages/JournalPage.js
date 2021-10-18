@@ -75,7 +75,7 @@ const JournalPage = () => {
     return (
         <main className="journalpage">
             <div className="journalpage__header">
-                <h1>My Journal</h1> <span title="Add" onClick={isEdit ? (e) => resetAll(e) : e => setisAdd(!isAdd)}> Add</span>
+                <h1>My Journal</h1> <span title="Add" onClick={isEdit ? (e) => resetAll(e) : e => setisAdd(!isAdd)}>{isAdd || isEdit ? "Back" : "Add"}</span>
             </div>
 
             {isAdd || isEdit ? <JournalForm title={formtitle} setTitle={setformtitle} data={formcontent} setData={setformcontent} create={isEdit ? UpdateJournal : addJournal} id={journalId} /> :
