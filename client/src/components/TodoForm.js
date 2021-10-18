@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const TodoForm = ({ onSubmit, current, Resetall, isEdit }) => {
     const [input, setInput] = useState('');
