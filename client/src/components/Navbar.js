@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 function Navbar() {
   return (
 
-    <div class="vertical-menu">
+    <div className="vertical-menu">
       <ul className="vertical-nav-bar">
         <NavLink exact to='/' activeClassName="active">
           Dashboard

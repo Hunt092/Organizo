@@ -10,9 +10,14 @@ function AddToDoList() {
     const [todos, setTodos] = useState([]);
     const [isEdit, setEdit] = useState(false)
     const [isAdd, setAdd] = useState(false)
-    useEffect(() => {
-        setTodos(todo)
-    }, [todo])
+    const [currenttodo, setcurrent] = useState(null)
+
+
+    const Resetall = () => {
+        setEdit(false)
+        setAdd(false)
+        setcurrent({})
+    }
 
     const addTodo = todo => {
         if (!todo.data || /^\s*$/.test(todo.data)) {
@@ -60,30 +65,45 @@ function AddToDoList() {
         })()
     }
 
-    const completeTodo = id => {
-        let updatedTodos = todos.map(todo => {
-            if (todo._id === id) {
-                todo.isComplete = !todo.isComplete
-            }
-            return todo
-        })
-        setTodos(updatedTodos);
+    const completeTodo = toupdatetodo => {
+        (async () => {
+            const newtodo = { ...toupdatetodo, status: !toupdatetodo.status }
+            const res = await updateToDo(newtodo, toupdatetodo._id)
+            const updatedTodos = todos.map(todo => (
+                todo._id === toupdatetodo._id ? { ...todo, status: !todo.status } : todo
+            ))
+            dispatch({
+                type: 'UPDATE__TODOS',
+                todos: updatedTodos
+            })
+        })()
     }
 
-    return (
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }} >
-            <h1>What's the plan for today??</h1>
-            {
-                isAdd || isEdit ? <TodoForm onSubmit={addTodo} />
-                    :
-                    todos.map((todo) => (
-                        <Todo todo={todo} key={todo._id} completeTodo={completeTodo} removeTodo={removeTodo}
-                            updateTodo={updateTodo}
-                        />
-                    ))
 
-            }
-        </div>
+    useEffect(() => {
+        setTodos(todo)
+    }, [todo])
+
+    return (
+        <div className="todopage" >
+            <div className="todopage__header">
+                <h1 className='todo__title' >What's the plan for today??</h1>
+                <span className="todoheader__toggle" onClick={() => Resetall()}>{isAdd || isEdit ? "Back" : "Add"}</span>
+            </div>
+            <div className="todopage__content">
+                {
+                    isAdd || isEdit ? <TodoForm onSubmit={isEdit ? updateTodo : addTodo} current={currenttodo} Resetall={Resetall} isEdit={isEdit} />
+                        :
+                        todos.map((todo) => (
+                            <Todo todo={todo} key={todo._id} completeTodo={completeTodo} removeTodo={removeTodo}
+                                setcurrent={setcurrent}
+                                setEdit={setEdit}
+                            />
+                        ))
+
+                }
+            </div>
+        </div >
     )
 }
 
