@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Todo from './Todo';
 import TodoForm from './TodoForm'
-import '../styles/AddToDo.css';
 import { useStateValue } from '../Store/StateProvider';
 import { createTodo, deleteTodo, updateToDo } from '../api/db';
+import '../styles/Todo.css'
 
 function AddToDoList() {
     const [{ user, todo }, dispatch] = useStateValue()
