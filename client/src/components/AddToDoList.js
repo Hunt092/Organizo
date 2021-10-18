@@ -88,7 +88,7 @@ function AddToDoList() {
         <div className="todopage" >
             <div className="todopage__header">
                 <h1 className='todo__title' >What's the plan for today??</h1>
-                <span className="todoheader__toggle" onClick={() => Resetall()}>{isAdd || isEdit ? "Back" : "Add"}</span>
+                <span className="todoheader__toggle" onClick={isAdd || isEdit ? () => Resetall() : () => setAdd(!isAdd)}>{isAdd || isEdit ? "Back" : "Add"}</span>
             </div>
             <div className="todopage__content">
                 {
