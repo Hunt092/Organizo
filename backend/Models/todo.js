@@ -10,7 +10,10 @@ const todoSchema = new schema({
         type: mongoose.Types.ObjectId,
         ref: "User"
     },
-    date: { type: Date, default: Date() }
+    date: { type: Date, default: Date() },
+    tobeDone: { type: Date, default: Date() }
+
+
 }
 )
 
