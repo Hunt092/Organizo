@@ -4,6 +4,9 @@ import TodoForm from './TodoForm';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { TiEdit } from 'react-icons/ti';
 
+
+
+const TodoStyle = { display: 'flex', alignItems: 'stretch', backgroundColor: 'white', padding: '1em', width: '500px', justifyContent: 'space-evenly' }
 function Todo({ todo, completeTodo, removeTodo, updateTodo }) {
 
     const [edit, setEdit] = useState({
@@ -25,7 +28,7 @@ function Todo({ todo, completeTodo, removeTodo, updateTodo }) {
     }
 
     return (
-        <div className='todo-row' style={{ display: 'flex',alignItems: 'stretch', backgroundColor: 'white', padding: '1em',width: '500px',justifyContent:'space-evenly' }}>
+        <div className='todo-row' style={TodoStyle}>
             <div onClick={() => completeTodo(todo._id)}>
                 {todo.data}
             </div>

@@ -3,7 +3,7 @@ const schema = mongoose.Schema
 
 
 const todoSchema = new schema({
-    status: { type: String, default: "Undone" },
+    status: { type: Boolean, default: false },
     data: { type: String, default: "" },
     Priority: { type: String, default: "low", enum: ["low", "medium", "high"] },
     authorId: {

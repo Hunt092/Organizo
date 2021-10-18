@@ -8,7 +8,8 @@ import { createTodo, deleteTodo, updateToDo } from '../api/db';
 function AddToDoList() {
     const [{ user, todo }, dispatch] = useStateValue()
     const [todos, setTodos] = useState([]);
-
+    const [isEdit, setEdit] = useState(false)
+    const [isAdd, setAdd] = useState(false)
     useEffect(() => {
         setTodos(todo)
     }, [todo])
@@ -72,12 +73,15 @@ function AddToDoList() {
     return (
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }} >
             <h1>What's the plan for today??</h1>
-            <TodoForm onSubmit={addTodo} />
-            {todos.map((todo) => (
-                <Todo todo={todo} key={todo._id} completeTodo={completeTodo} removeTodo={removeTodo}
-                    updateTodo={updateTodo}
-                />
-            ))
+            {
+                isAdd || isEdit ? <TodoForm onSubmit={addTodo} />
+                    :
+                    todos.map((todo) => (
+                        <Todo todo={todo} key={todo._id} completeTodo={completeTodo} removeTodo={removeTodo}
+                            updateTodo={updateTodo}
+                        />
+                    ))
+
             }
         </div>
     )
